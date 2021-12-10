@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PlacesService } from './places.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { PlacesService } from './places.service';
 })
 export class PlacesPage implements OnInit {
   places = []
-  constructor(private placeService: PlacesService) { }
+  constructor(private placeService: PlacesService, private router: Router) { }
 
   ngOnInit() {
     this.places = this.placeService.getPlaces()
@@ -17,5 +18,10 @@ export class PlacesPage implements OnInit {
   ionViewWillEnter(){  // Fundamental para eliminar elementos y al volver desaparezcan.
     this.places = this.placeService.getPlaces();
   }
+
+  addNewPlaces(){
+    this.router.navigate(['/new-place']);
+  }
+
 }
 
