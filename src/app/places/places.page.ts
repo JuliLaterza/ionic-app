@@ -14,4 +14,8 @@ export class PlacesPage implements OnInit {
     this.places = this.placeService.getPlaces()
   }
 
+  ionViewWillEnter(){  // Fundamental para eliminar elementos y al volver desaparezcan.
+    this.places = this.placeService.getPlaces();
+  }
 }
+
